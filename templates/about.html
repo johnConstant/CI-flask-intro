@@ -15,16 +15,32 @@
            party.
        </p>
        {% for dwarf in company %}
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h3>{{dwarf["name"]}}</h3>
-                    <p>{{dwarf.description}}</p>
+            {% if loop.index % 2 != 0: %}
+                <div class="row featurette">
+                    <div class="col-md-7">
+                        <h3>{{loop.index }}. {{ dwarf["name"]}}</h3>
+                        <p>{{dwarf.description}}</p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="{{dwarf.image_source}}" alt="{{ dwarf.name }}" class="featurette-image image-responsive">
+                    </div>
                 </div>
+            {% else: %}
+            <div class="row featurette">
                 <div class="col-md-5">
                     <img src="{{dwarf.image_source}}" alt="{{ dwarf.name }}" class="featurette-image image-responsive">
                 </div>
+                <div class="col-md-7">
+                    <h3>{{loop.index }}. {{dwarf["name"]}}</h3>
+                    <p>{{dwarf.description}}</p>
+                </div>
             </div>
-            <hr class="featurette-divider">
+            {% endif %}
+
+            {% if loop.index != loop.length %}
+                <hr class="featurette-divider">
+            {% endif %}
+
        {% endfor %}
       </div>
     </section> 
