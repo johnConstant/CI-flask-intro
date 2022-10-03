@@ -1,3 +1,18 @@
 .featurette img {
     width: 100%;
 }
+
+.flash {
+    width: 100%;
+    background-color: lightgreen;
+    color: green;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 3px;
+    list-style-type: none;
+
+}
+
+ul .flash {
+    list-style-type: none;
+}
